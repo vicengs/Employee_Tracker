@@ -5,16 +5,18 @@
 /* Date     : 04/20/2022       */
 /* Modified : 04/21/2022       */
 /* --------------------------- */
+-- Delete data tables
 DELETE FROM employees;
 DELETE FROM roles;
 DELETE FROM departments;
+-- Insert data in departaments table
 INSERT
   INTO departments (name)
-VALUES ("Human Resources")
-      ,("Administration")
-      ,("Customer Service")
-      ,("Finance");
---
+VALUES ("Human Resources")  -- 1
+      ,("Administration")   -- 2
+      ,("Customer Service") -- 3
+      ,("Finance");         -- 4
+-- Insert data in roles table
 INSERT
   INTO roles (title, salary, department_id)
 VALUES ("Personal manager"            , 110000.09, 1)  -- 1  Human Resources
@@ -29,7 +31,7 @@ VALUES ("Personal manager"            , 110000.09, 1)  -- 1  Human Resources
       ,("Supervisor"                  , 68799.99 , 3)  -- 10 Customer Service
       ,("Agent"                       , 59870.00 , 3)  -- 11 Customer Service
       ,("General accounting"          , 87060.15 , 4); -- 12 Finance
---
+-- Insert data in employees table
 INSERT
   INTO employees (first_name, last_name, role_id, manager_id)
 VALUES ("Robert" , "Smith"   , 1  , null) -- 1  Personal manager
@@ -46,16 +48,3 @@ VALUES ("Robert" , "Smith"   , 1  , null) -- 1  Personal manager
       ,("Andrew" , "Berti"   , 5  , 11)   -- 12 Accounting assistant
       ,("Louis"  , "Fleming" , 11 , 8)    -- 13 Agent
       ,("Megan"  , "Rice"    , 7  , 1);   -- 14 Recruiter
---
-select CONCAT(a.first_name, " ", a.last_name) NAME
-      ,c.name  DEPARTMENT
-      ,b.title POSITION
-      ,b.salary SALARY
-      ,IFNULL(CONCAT(d.first_name, " ", d.last_name), "AREA BOSS") MANAGER
-  from employees   a
-  left join employees d ON d.id = a.manager_id
-      ,roles       b
-      ,departments c
- where a.role_id       = b.id
-   and b.department_id = c.id
- order by a.id;

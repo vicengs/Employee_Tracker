@@ -16,4 +16,5 @@ const db = mysql.createConnection(
       database: 'company'
     }
 );
+// Export module db
 module.exports = db;

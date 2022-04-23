@@ -1,15 +1,21 @@
 /* --------------------------- */
 /* Project  : Employee Tracker */
-/* File     : queries.js       */
+/* File     : Queries.js       */
 /* Author   : Vicente Garcia   */
 /* Date     : 04/22/2022       */
 /* Modified : 04/22/2022       */
 /* --------------------------- */
+// Add module console table to show formated db table
 require('console.table');
+// Add db library to conect database
 const db = require('./connection');
+// Function Queries
 function Queries(){
+    // Method to apply a query
     Queries.prototype.getQuery = function(search, condition){
+        // Variable with statement
         let sql;
+        // Validate table and parameters to build query statement
         if (search === "Departments"){
             sql = `SELECT id   ID
                          ,name DEPARTMENT
@@ -81,6 +87,7 @@ function Queries(){
                     GROUP BY c.name
                     ORDER BY SUM(b.salary) DESC`;
         };
+        // Execute db instruction (query)
         db.query(sql, (err, rows) => {
             if (err) {
                 console.log(err)
@@ -95,4 +102,5 @@ function Queries(){
         });
     };
 };
+// Export module Queries
 module.exports = Queries;
