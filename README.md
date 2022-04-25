@@ -57,11 +57,11 @@ Made by Vicente Garcia Sepulveda
 
 #### Github repository
 
-- https://github.com/vicengs/Note_Taker
+- https://github.com/vicengs/Employee_Tracker
 
 #### SSH to clone:
 
-    git@github.com:vicengs/Note_Taker.git
+    git@github.com:vicengs/Employee_Tracker.git
   
 #### E-mail
   
