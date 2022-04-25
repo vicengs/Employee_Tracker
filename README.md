@@ -35,7 +35,7 @@ Execute on project path the following command "node index.js".
 
 ## Walkthrough Video
 
-
+https://drive.google.com/file/d/189Xun2tLPs05e-ICibum4058FqNXiWss/view
 
 ## Contributing
 
